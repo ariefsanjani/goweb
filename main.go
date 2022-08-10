@@ -16,7 +16,7 @@ func main() {
 	fileServer := http.FileServer(http.Dir("assets"))
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
-	port := os.Getenv("PORT")
+	port := os.Getenv("80")
 
 	log.Println("Starting web on port" + port)
 
