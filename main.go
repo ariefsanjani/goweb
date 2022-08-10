@@ -4,7 +4,6 @@ import (
 	"goweb/handler"
 	"log"
 	"net/http"
-	"os"
 )
 
 func main() {
@@ -16,10 +15,8 @@ func main() {
 	fileServer := http.FileServer(http.Dir("assets"))
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
-	port := os.Getenv("80")
+	log.Println("Starting web on port")
 
-	log.Println("Starting web on port" + port)
-
-	err := http.ListenAndServe(":"+port, mux)
+	err := http.ListenAndServe(":", mux)
 	log.Fatal(err)
 }
