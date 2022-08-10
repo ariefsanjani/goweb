@@ -1,4 +1,4 @@
-// +heroku goVersion go1.19
+// +heroku goVersion go1.18
 
 module goweb
 
